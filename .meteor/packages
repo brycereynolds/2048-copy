@@ -7,3 +7,16 @@
 meteor-platform
 autopublish
 insecure
+fourseven:scss
+iron:router
+zimme:iron-router-auth
+zimme:iron-router-active
+manuelschoebel:wait-on-lib
+meteorhacks:fast-render
+meteorhacks:subs-manager
+msavin:mongol
+mquandalle:jade
+gwendall:body-events
+sanjo:jasmine
+velocity:html-reporter
+brycereynolds:2048board

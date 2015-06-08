@@ -1,0 +1,105 @@
+// TODO Restructure global variables
+// Global Variables
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+
+// TODO Restructure mixins
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin clearfix() {
+  overflow: auto;
+  zoom: 1;
+}
+
+
+
+// General Styling
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+
+
+
+// Game Board
+
+#holder{
+  width: 500px;
+  margin: 50px;
+}
+#board {
+  @include clearfix();
+  @include border-radius(10px);
+
+  background: #333;
+  padding: 10px;
+
+  // These are our squares
+  div{
+    @include border-radius(10px);
+    background-color: #ECECEC;
+    height: 110px;
+    width: 110px;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    // font-size: 62px;
+    line-height: 105px;
+  }
+
+  // Board Cell Styling
+  $cell-levels: 2 4 8 16 32 64 128 256 512 1024 2048;
+
+  // Color Set #1
+  // $cell-color-2:     #B4DDCC;
+  // $cell-color-4:     #EAF2BB;
+  // $cell-color-8:     #DBAA9C;
+  // $cell-color-16:    #8BB8E4;
+  // $cell-color-32:    #EAAC6F;
+  // $cell-color-64:    #DFEC27;
+  // $cell-color-128:   #07B537;
+  // $cell-color-256:   #A67AE7;
+  // $cell-color-512:   #8FD500;
+  // $cell-color-1024:  #E77B00;
+  // $cell-color-2048:  #C837C6;
+
+  // Color Set #2
+  $cell-color-2:     #FDECCE;
+  $cell-color-4:     #EDCF9B;
+  $cell-color-8:     #EAC480;
+  $cell-color-16:    #F4C572;
+  $cell-color-32:    #F4B343;
+  $cell-color-64:    #F5AA24;
+  $cell-color-128:   #FFA300;
+  $cell-color-256:   #B5FF00;
+  $cell-color-512:   #74ECF0;
+  $cell-color-1024:  #E468FF;
+  $cell-color-2048:  #FF0091;
+
+  $cell-colors: $cell-color-2 $cell-color-4 $cell-color-8 $cell-color-16 $cell-color-32 $cell-color-64 $cell-color-128 $cell-color-256 $cell-color-512 $cell-color-1024 $cell-color-2048;
+
+  $i: 1;
+  @each $level in $cell-levels {
+    .c-#{$level} {
+      background-color: nth($cell-colors, $i);
+
+      @if $level > 512 {
+        font-size: 40px;
+      } @else if $level > 64 {
+        font-size: 50px;
+      }@else {
+        font-size: 62px;
+      }
+    }
+    $i: $i + 1;
+  }
+}
+

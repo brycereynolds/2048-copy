@@ -1,0 +1,16 @@
+<template name="board">
+  <div id="holder">
+    <div id="board">
+
+
+      {{#each cells}}
+        {{#if hasValue}}
+          <div class="c-{{value}}">{{value}}</div>
+        {{else}}
+          <div></div>
+        {{/if}}
+      {{/each}}
+
+    </div>
+  </div>
+</template>
